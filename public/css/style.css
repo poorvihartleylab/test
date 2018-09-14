@@ -1,0 +1,18 @@
+h3{
+	color: gray;
+	text-align: center;
+}
+.div-form{
+    text-align: justify;
+    width: 800px;
+    margin: 0px 240px;
+}
+
+.div-form{
+    text-align: justify;
+}
+
+.navbar-nav {
+    float: right !important;
+    margin: 0;
+}

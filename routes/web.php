@@ -11,15 +11,15 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
 });
-
+*/
 Route::get('/new-role', function(){
 	return view('add-role');
 });
 
-Route::get('/new-user', 'UserController@index');
+Route::get('/', 'UserController@index');
 
 Route::post('/store', 'UserController@store')->name('save-user');
 
