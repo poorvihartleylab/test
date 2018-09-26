@@ -12,12 +12,13 @@
 <body class="main-home">
     <div class="flex-center position-ref full-height main">
         <div class="top-right links">
+        
             <a href="{{ route('login') }}">Login</a>
             <a href="{{ route('registeration') }}">Register</a>
         </div>
         <div class="main content">
             <div class="title m-b-md">
-                My Clinic
+      
             </div>
         </div>
     </div>
