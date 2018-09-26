@@ -8,10 +8,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'My Clinic') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
     <div id="app">
@@ -29,7 +32,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', 'My Clinic') }}
                     </a>
                 </div>
 
@@ -38,19 +41,25 @@
                     <ul class="nav navbar-nav">
                         &nbsp;
                     </ul>
-
+                    
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('registeration') }}">Register</a></li>
                         @else
+                       @if(Auth::user()->email == "mike111taylor@gmail.com")
+                            <li> <a href="{{ route('show-banner') }}">Add Banner</a></li>
+                            <li> <a href="{{ route('role-list') }}">Role List</a></li>
+                            <li> <a href="{{ route('list') }}">User List</a></li>
+                        @else
+                         <li> <a href="{{ route('list') }}">User List</a></li>
+                        @endif
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a href="{{ route('logout') }}"
@@ -58,7 +67,6 @@
                                                      document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
-
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
@@ -70,8 +78,9 @@
                 </div>
             </div>
         </nav>
-
+        <div class="container-fluid">
         @yield('content')
+        </div>
     </div>
 
     <!-- Scripts -->

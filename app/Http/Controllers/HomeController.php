@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {   
-       $users = User::all();
+       $users = User::paginate(3);
 
         // Get the currently authenticated user...
         $user = Auth::user();
@@ -33,7 +33,8 @@ class HomeController extends Controller
         // Get the currently authenticated user's ID...
         $id = Auth::id();
        // dd($id);
-       return view('home')->with(['user_list' => $users]);
+       return view('user-list')->with(['users' => $users]);
+       
     }
 
 

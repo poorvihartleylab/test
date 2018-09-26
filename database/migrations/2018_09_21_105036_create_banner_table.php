@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRolesUserTable extends Migration
+class CreateBannerTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateRolesUserTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->unsignedInteger('role_id')->nullable();
-            $table->foreign('role_id')->references('id')->on('roles');
+        Schema::create('banner', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('image');
+            $table->string('imagepath');
+            $table->boolean('status')->default('true');
+            $table->timestamps();
         });
     }
 
@@ -26,6 +29,6 @@ class CreateRolesUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles_user');
+        Schema::dropIfExists('banner');
     }
 }

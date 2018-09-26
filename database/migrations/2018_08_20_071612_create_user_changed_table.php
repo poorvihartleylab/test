@@ -14,7 +14,6 @@ class CreateUserChangedTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-           $table->bigInteger('contact');
            $table->string('message', 500);
         });
     }

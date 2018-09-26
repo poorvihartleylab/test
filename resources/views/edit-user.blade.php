@@ -97,7 +97,6 @@
 </div><!-- close container -->
 <script>
    $(document).ready(function(){
-
    var mobile_count = $("#mobile_count").val();
    var max_fields      = 3; 
    var wrapper         = $(".input_fields_wrap"); //Fields wrapper
@@ -107,7 +106,7 @@
    	 	 e.preventDefault();
    		if(mobile_count < max_fields && x != 0){
    			mobile_count++; 
-   			$(wrapper).append('<div><input type="text" name="mobile_no[]"/><a href="#" class="remove_field">Remove</a></div>'); 
+   			$(wrapper).append('<div><input type="text" name="mobile_no[]" class="form-control"/><a href="#" class="remove_field">Remove</a></div>'); 
    		}
      	})
    
